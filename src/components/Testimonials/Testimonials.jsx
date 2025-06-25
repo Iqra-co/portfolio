@@ -203,7 +203,7 @@ const Testimonials = () => {
     <div data-aos="fade-up" className='py-5 mb-8'>
       <div className='container mx-auto px-4'>
         {/* Header */}
-        <div className='text-left mb-8 max-w-[600px] mx-auto'>
+        <div className='text-left mb-8 max-w-[600px]'>
           <p className='text-sm text-primary'>What our Customers are saying</p>
           <h1 className='text-3xl font-bold'>Testimonials</h1>
           <p className='text-xs text-gray-400'>
