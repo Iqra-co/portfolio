@@ -1,4 +1,6 @@
 import React from 'react'
+import { useState } from "react";
+
 import Navbar from './components/Navbar';
 import Hero from './components/hero/Hero';
 import Products from './components/Products/Products';
@@ -29,16 +31,23 @@ const App = () => {
     });
     Aos.refresh();
   },  []);
+  const [search, setSearch] = useState("");
+
   return (
     <div className=' bg-white dark:bg-gray-900
      dark:text-white duration-200'>
-      <Navbar handleOrderPopup={handleOrderPopup} />
+      {/* <Navbar handleOrderPopup={handleOrderPopup} /> */}
+      <Navbar handleOrderPopup={handleOrderPopup} setSearch={setSearch} />
+
       <Hero handleOrderPopup ={handleOrderPopup} />
-     <Products />
-     <TopProducts handleOrderPopup ={handleOrderPopup} />
+    <Products search={search} />
+
+     {/* <TopProducts handleOrderPopup ={handleOrderPopup} /> */}
+     <TopProducts handleOrderPopup={handleOrderPopup} search={search} />
+
      <Banner />
      <Subscribe />
-     <Products />
+     <Products  search={search} />
      <Testimonials />
      <Footer />
      <Popup orderPopup={orderPopup} setOrderPopup={setOrderPopup} />

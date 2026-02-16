@@ -23,7 +23,18 @@ const ProductsData = [
   description: "Lorem ipsum dolor, sit amet consectetur elit. Molestiae nesciunt explicabo iusto amet dicta enim molestias blanditiis a",  
 },
 ]
-const TopProducts = ({handleOrderPopup}) => {
+
+// const filtered = ProductsData.filter(item =>
+//   item.title.toLowerCase().includes(search.toLowerCase())
+// );
+
+// const TopProducts = ({ handleOrderPopup, search }) => {
+const TopProducts = ({handleOrderPopup, search = "" }) => {
+
+  const filtered = ProductsData.filter(item =>
+    item.title.toLowerCase().includes(search.toLowerCase())
+  );
+
   return (
     <div className='mb-0 mt-2'>
       <div className='container'>
@@ -32,13 +43,13 @@ const TopProducts = ({handleOrderPopup}) => {
   <p data-aos="fade-up" className='text-sm text-primary'>
     Top Selling Products for You</p>
   <h1 data-aos='fade-up ' className='text-3xl font-bold'>
-    Products</h1>
-  <p data-aos="fade-up" className='text-xs
+    Men Corner</h1>
+  {/* <p data-aos="fade-up" className='text-xs
    text-gray-400'>
     Lorem ipsum dolor sit amet consectetur 
     adipisicing elit.
 
-  </p>
+  </p> */}
  </div>
 {/* Body Section */}
 
@@ -48,7 +59,8 @@ sm:grid-cols-2
  md:grid-cols-3 gap-20 md:gap-5 
  place-items-center'
  >
-  {ProductsData.map((data) => (
+  {filtered.map((data) => (
+
   <div 
     key={data.id}
     data-aos='zoom-in' 

@@ -47,9 +47,18 @@ const ProductsData = [
     aosDelay:'800',
 },
 ];
+// const filtered = ProductsData.filter(item =>
+//   item.title.toLowerCase().includes(search.toLowerCase())
+// );
 
- const Products = () => {
+const Products = ({ search = "" }) => {
+
+  const filtered = ProductsData.filter(item =>
+    item.title.toLowerCase().includes(search.toLowerCase())
+  );
+
   return (
+
     <div className='mt-5 mb-8'>
         <div className='container'>
             {/* Header Section */}
@@ -60,11 +69,11 @@ const ProductsData = [
                 data-aos="fade-up"
                  className='text-sm text-primary '>Top Selling Products for you</p>
                 <h1  
-                data-aos="fade-up"className='text-3xl font-bold'>Products</h1>
-                <p 
-                data-aos="fade-up" className='text-xs text-gray-400'>sss
+                data-aos="fade-up"className='text-3xl font-bold'>Women Corner</h1>
+                {/* <p 
+                data-aos="fade-up" className='text-xs text-gray-400'>
                     Lorem ipsum dolor sit amet consectetur
-                </p>
+                </p> */}
             </div>
             {/* Body Section */}
             <div>
@@ -72,7 +81,8 @@ const ProductsData = [
                 md:grid-cols-4 lg:grid-cols-5 place-items-center
                 gap-5'>
                     {/* Card Section */}
-                    {ProductsData.map((data) => (
+                  {filtered.map((data) => (
+
                             <div
                              key={data.id}
                             

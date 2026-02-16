@@ -59,7 +59,8 @@ const DropdownLinks = [
 ];
 
 
-const Navbar = ({ handleOrderPopup}) => {
+const Navbar = ({ handleOrderPopup, setSearch }) => {
+
   return  (
   <div className='shadow-md bg-white
    dark:bg-gray-900 dark:text-white duration-200
@@ -92,6 +93,8 @@ justify-between items-center py-4'>
          name="search"
          placeholder="Search"
           id="searchInput"
+          onChange={(e) => setSearch(e.target.value)}
+
         className='w-[200px] sm:w-[200px]
         group-hover:w-[300px] transition-all duration-300 rounded-full
          border-gray-300 px-2 py-1 
